@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "defender-app"
+    "default": "defender-app",
+    "first commit": "defender-app"
   }
 }
