@@ -20,19 +20,24 @@ function calcluate(e){
     let today=new Date()
 
     console.log(endDate)
-    let remainingMonths=monthDiff(today, endDate)
-    let moneyOwed = remainingMonths * mmr.value
-    let moneyOwed2 = moneyOwed*.75
+    if (installDate< today){ 
 
-    results.innerHTML = `Total Money Owed (Left on Contract): $${moneyOwed.toFixed(2)}<br>75% remaining balance due is: $${moneyOwed2.toFixed(2)}<br> Total Months Remaining: ${remainingMonths}`
-
-    calculation.classList.remove('animated', 'fadeIn')
-    calculation.style.visibility = "hidden"
-    window.setTimeout(function () {
-
-        calculation.classList.add('animated', 'fadeIn', 'delay-1s')
-        calculation.style.visibility = "visible"
-    }, 50);
+        let remainingMonths=monthDiff(today, endDate)
+        let moneyOwed = remainingMonths * mmr.value
+        let moneyOwed2 = moneyOwed*.75
+        
+        results.innerHTML = `Total Money Owed (Left on Contract): $${moneyOwed.toFixed(2)}<br>75% remaining balance due is: $${moneyOwed2.toFixed(2)}<br> Total Months Remaining: ${remainingMonths}`
+        
+        calculation.classList.remove('animated', 'fadeIn')
+        calculation.style.visibility = "hidden"
+        window.setTimeout(function () {
+            
+            calculation.classList.add('animated', 'fadeIn', 'delay-1s')
+            calculation.style.visibility = "visible"
+        }, 50);
+    }else{
+        alert("Install date either not selected or is set in the future.")
+    }
 
 
 }
